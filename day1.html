@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * 
+        { padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+
+        }
+        .container{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="controls">
+            <h2>Update Variable</h2>
+
+            <label for="nameInput">Name(String):</label>
+            <input type="text"id="nameInput" value="AlexWalker"/>
+
+            <label for="ageInput">Age(Number):</label>
+            <input type="number" id="ageInput"value="28"/>
+
+            <label for="vipInput">VIP Status(Boolean):</label>
+            <input type="checkbox" id="vipInput"checked />
+    
+            <label for="colorInput">card color:</label>
+            <input type="color" id="colorInput"value="#f4f4f4"/>
+        </section>
+     </div>
+        <div>
+            <h2>Live DOM</h2>
+            <div class="card">
+                <h3 id="nameOutput">Sample Name</h3>
+                <p>Age:<span id="ageOutput">40</span></p>
+
+            </div>
+     </div>
+    </div>
+</body>
+</html>

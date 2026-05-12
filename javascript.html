@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            *{
+                margin: 0;
+                padding:0;
+                box-sizing: border-box;
+            }
+            .container{
+                border-radius: 20px;
+                border: 2px solid rgb(86, 3, 7);
+                margin: auto;
+                width: 450px;
+                height: 200px ;
+                padding: 30px ;
+                margin-top: 20px;
+            }
+            button{
+                background-color: rgb(149, 163, 149);
+                margin-top: 20pxs; 
+                width: 90%;
+                height: 30px;
+            }
+            h2{
+                margin: 10px;
+            }
+            input{
+                margin:10px;
+            }
+            .result{
+                margin:20px;
+            }
+    </style>
+    <script>
+    function Calculate(){
+            let no1=parseFloat(document.getElementById("no1").value);
+            let no2=parseFloat(document.getElementById("no2").value);
+            let operator=document.getElementById("operator").value;
+            let result;
+            if(operator==="+"){
+                result=no1+no2;
+        }
+        else if(operator==="-"){
+            result=no1-no2;
+        }
+        else if(operator==="*"){
+            result=no1*no2;
+        }
+        else if(operator==="/"){
+            result=no1/no2;
+        }
+        document.getElementById("result").innerHTML=result;
+
+        }
+        </script>
+</head>
+<body>
+    <div class="container">         
+    <h2>Mini Calculator</h2>
+    <input type="number" value="45" id="no1">
+     <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+    </select>
+    <input type="number" value="45" id="no2">
+    <div>  
+    <button onclick="Calculate()">Calculate Amount</button>
+    </div>
+    <div class="result">
+             result:
+             <span class ="result" id="result">0</span>
+            </div>
+</div>
+</body>
+</html>
