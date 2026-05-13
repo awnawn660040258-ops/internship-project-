@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+
+<style>
+.container{
+    width: 100%;
+    height: 100vh;
+    background:#d1f8cd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.calculator{
+    background:#0cb149fd;
+    padding:10px 20px;
+    border-radius:10px;
+}
+
+.calculator form input{
+    border:0;
+    outline:0;
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    box-shadow:-8px -8px 15px rgb(42,53,57),
+               5px 5px 15px #030e09;
+    background:transparent;
+    font-size:20px;
+    color:#0e1e14;
+    cursor:pointer;
+    margin:10px;
+}
+
+form .display{
+    display:flex;
+    justify-content:flex-end;
+}
+
+form .display input{
+    text-align:right;
+    flex:1;
+    font-size:45px;
+    box-shadow:none;
+}
+
+form input.equal{
+    width:125px;
+}
+
+form input.operator{
+    color:#130213;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="calculator">
+
+        <form>
+
+            <div class="display">
+                <input type="text" id="display">
+            </div>
+
+            <div>
+                <input type="button" value="AC" onclick="clearDisplay()" class="operator">
+                <input type="button" value="⌫" onclick="deleteLast()" class="operator">
+                <input type="button" value="." onclick="appendValue('.')">
+                <input type="button" value="/" onclick="appendValue('/')">
+            </div>
+
+            <div>
+                <input type="button" value="7" onclick="appendValue('7')">
+                <input type="button" value="8" onclick="appendValue('8')">
+                <input type="button" value="9" onclick="appendValue('9')">
+                <input type="button" value="*" onclick="appendValue('*')">
+            </div>
+
+            <div>
+                <input type="button" value="4" onclick="appendValue('4')">
+                <input type="button" value="5" onclick="appendValue('5')">
+                <input type="button" value="6" onclick="appendValue('6')">
+                <input type="button" value="-" onclick="appendValue('-')">
+            </div>
+
+            <div>
+                <input type="button" value="1" onclick="appendValue('1')">
+                <input type="button" value="2" onclick="appendValue('2')">
+                <input type="button" value="3" onclick="appendValue('3')">
+                <input type="button" value="+" onclick="appendValue('+')">
+            </div>
+
+            <div>
+                <input type="button" value="%" onclick="percentage()">
+                <input type="button" value="0" onclick="appendValue('0')">
+                <input type="button" value="(" onclick="appendValue('(')">
+                <input type="button" value=")" onclick="appendValue(')')">
+            </div>
+
+            <div>
+                <input type="button" value="=" onclick="calculate()" class="equal">
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+
+let display = document.getElementById("display");
+
+function appendValue(value){
+    display.value += value;
+}
+
+function clearDisplay(){
+    display.value = "";
+}
+
+function deleteLast(){
+    display.value = display.value.slice(0, -1);
+}
+
+function calculate(){
+    try{
+
+        if(display.value.trim() === ""){
+            return;
+        }
+
+        display.value = eval(display.value);
+
+    }
+    catch{
+        display.value = "Error";
+    }
+}
+
+function percentage(){
+    try{
+        display.value = eval(display.value) / 100;
+    }
+    catch{
+        display.value = "Error";
+    }
+}
+
+</script>
+
+</body>
+</html>
